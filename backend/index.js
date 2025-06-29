@@ -18,10 +18,24 @@ connectDB();
 app.use(express.json())
 app.use(urlencoded({extended: true}))
 app.use(cookieParser())
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://expense-tracker-saisathwik.netlify.app/"
+];
+
 const corsOptions = {
-    origin:"http://localhost:5173",
-    credentials:true
-}
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman or curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+};
 app.use(cors(corsOptions))
 
 app.use('/api/user',userRoutes)
