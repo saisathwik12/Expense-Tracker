@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:5000/api"
+const baseURL = "https://expense-tracker-paz3.onrender.com/api"
 
 export const EXPENSE_API_END_POINT = `${baseURL}/expense`
 

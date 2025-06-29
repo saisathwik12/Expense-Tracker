@@ -22,7 +22,7 @@ app.use(cookieParser())
 const allowedOrigins = [
   "http://localhost:5173",
   "https://expense-tracker-paz3.onrender.com",
-  "https://expense-tracker-saisathwik.netlify.app/"
+  "https://expense-tracker-saisathwik.netlify.app"
 ];
 
 const corsOptions = {
